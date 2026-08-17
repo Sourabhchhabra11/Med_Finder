@@ -1,242 +1,433 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\usepackage{enumitem}
-\usepackage{graphicx}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
 \usepackage{xcolor}
-
-% -----------------------------------------------------
-% bvraghav-tiet-ucs503p-article.sty
-% -----------------------------------------------------
-
-% Variable: Lab Instructor
-\makeatletter \newcommand{\BvrSetLabInstructor}[1]{%
-  \gdef\Bvr@LabInstructor{#1}}
-% default
-\newcommand{\Bvr@LabInstructor}{Dr. Raghav %
-  B. Venkataramaiyer}
-% public accessor
-\newcommand{\BvrLabInstructorValue}{\Bvr@LabInstructor}
-\makeatother
-
-% Add subtitle
-\usepackage{titling}
-% -- Set title bold
-\pretitle{\begin{center}\bfseries\fontsize{18bp}{18bp}\selectfont}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
 \makeatletter
-\newcommand{\BvrSubtitle}[1]{%
-  \posttitle{%
-    \par\end{center}
-    \begin{center}\large#1\end{center}
-    \vskip 0.5em}%
-}
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
 \makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-% Hints in the section title(s)
-\newcommand{\BvrHint}[1]{%
-  {\normalfont\normalsize\itshape\hfill #1}}
-
-% -----------------------------------------------------
-
-\title{Grievance-Resolution System for a Tier-2/3 City}
-
-\BvrSetLabInstructor{Dr. Raghav B. Venkataramaiyer}
-
-\BvrSubtitle{%
-  Project Proposal for UCS503P  \\
-  Submitted to: \BvrLabInstructorValue \\ \bfseries
-  Thapar Institute of Engineering and Technology% 
-}
-
-\author{
-  Vidya Vaidyanathan, CSED%
-  \thanks{Roll No: \texttt{1024030xxx}, %
-    Email: \texttt{vvaidhanathan\_be24\@thapar.edu}}
-  \and 
-  Bhanurekha Ganesan, CSED%
-  \thanks{Roll No: \texttt{1024030xxx}, %
-    Email: \texttt{bganesan\_be24\@thapar.edu}}
-}
-
-\date{\today}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\section{Higher-order goal%
-  \BvrHint{\ldots secondary framing}}
-This project aims to improve sustainable urban
-governance by reducing the time and effort required to
-resolve citizen issues. While the topic is broader than
-any single municipality, the immediate engineering
-objective is to translate \emph{efficient public
-  service delivery} into a measurable, deployable
+\textbf{MedFinder -- Real-Time Medicine Availability \& Store Locator}
+
+Project Proposal for UCS503P
+
+Submitted to: Mr. Asif
+
+\textbf{Thapar Institute of Engineering and Technology}
+
+Project Team
+
+Sourabh Chhabra(1024030435) \textbar{} Madhav Gupta(1024030436)
+\textbar{} Arpit Yadav (1024030446)
+
+August 16, 2026
+
+\section{\texorpdfstring{\textbf{1. Higher-order goal}
+\emph{\ldots secondary
+framing}}{1. Higher-order goal \ldots secondary framing}}\label{higher-order-goal-secondary-framing}
+
+This project aims to improve access to essential healthcare by reducing
+the time patients spend searching for medicines during urgent or routine
+needs. While the underlying issue of pharmacy inventory visibility spans
+an entire city, the immediate engineering objective is to translate
+real-time stock and location transparency into a measurable, deployable
 software solution.
 
-\section{Time-to-value %
-\BvrHint{\ldots primary heuristic}}
-\begin{itemize}[leftmargin=0.7cm]
-    \item We will deliver meaningful increments quickly by prototyping the core user workflow and validating it with users within a short iteration window.
-    \item We will prioritize fast feedback over perfection by using weekly iterations (and targeting CI-backed automation early) to reduce release friction.
-    \item Success is defined by what can be delivered and measured in the first iteration, then improved based on user feedback.
+\section{\texorpdfstring{\textbf{2. Time-to-value} \emph{\ldots primary
+heuristic}}{2. Time-to-value \ldots primary heuristic}}\label{time-to-value-primary-heuristic}
+
+\begin{itemize}
+\item
+  We will deliver meaningful increments quickly by prototyping the core
+  search-and-locate workflow and validating it with users within a short
+  iteration window.
+\item
+  We will prioritize fast feedback over perfection by using weekly
+  iterations (and targeting CI-backed automation early) to reduce
+  release friction.
+\item
+  Success is defined by what can be delivered and measured in the first
+  iteration --- a working medicine search and store locator --- then
+  improved based on user feedback.
 \end{itemize}
 
-\section{Problem Statement}
-Citizens in a tier-2/3 Indian city face delays and uncertainty when reporting local issues (e.g., streetlight outages, water leakage, garbage accumulation, road potholes). Common pain points include:
-\begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Fragmentation:} complaints are often made via multiple channels (calls, social media, paper forms), causing lost context.
-    \item \textbf{Low transparency:} citizens cannot easily see the status of their complaint (e.g., ``received'', ``assigned'', ``in progress'', ``resolved'').
-    \item \textbf{Slow coordination:} departments/field teams lack a unified, trackable workflow with clear ownership.
-    \item \textbf{Poor data quality:} duplicate or incomplete reports force rework and extend resolution time.
+\section{\texorpdfstring{\textbf{3. Problem
+Statement}}{3. Problem Statement}}\label{problem-statement}
+
+Patients in urban and semi-urban areas frequently struggle to find
+medicines quickly, especially during urgent medical needs. Common pain
+points include:
+
+\begin{itemize}
+\item
+  Fragmented availability: not every pharmacy stocks every medicine, and
+  there is no way to know which store has a specific item without
+  visiting or calling around.
+\item
+  Wasted time and effort: patients often roam from store to store, which
+  delays treatment and worsens outcomes, particularly for the elderly or
+  critically ill.
+\item
+  Unexpected stockouts: even common, everyday medicines go out of stock
+  without warning, compounding the same problem.
+\item
+  No visibility before travel: there is no simple, centralized way to
+  check medicine availability across nearby stores before stepping out
+  of the house.
 \end{itemize}
 
-\textbf{Why this matters now (contextual relevance):} In an urban setting with limited staff bandwidth, even small process improvements can noticeably reduce resolution delays and repeated submissions.
+Why this matters now (contextual relevance): In cities where pharmacies
+operate independently with no shared inventory system, even a
+lightweight visibility layer can meaningfully cut down search time and
+reduce delays in receiving treatment.
 
-\section{Proposed Solution %
-\BvrHint{\ldots Software Proposition}}
-\subsection{Overview}
-Build a \textbf{web-based} ``Grievance-to-Resolution'' system with the following components:
-\begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Citizen submission portal:} users submit an issue with photo (optional), category, and locality/ward.
-    \item \textbf{Automated triage:} basic duplicate detection and completeness checks.
-    \item \textbf{Department workflow:} assign issues to relevant department/team and update statuses.
-    \item \textbf{Status transparency:} citizens track status and receive notifications when resolved.
-    \item \textbf{Admin/ops dashboard:} performance summaries (resolution time, backlog).
+\section{\texorpdfstring{\textbf{4. Proposed Solution}
+\emph{\ldots Software
+Proposition}}{4. Proposed Solution \ldots Software Proposition}}\label{proposed-solution-software-proposition}
+
+\subsection{\texorpdfstring{\textbf{4.1
+Overview}}{4.1 Overview}}\label{overview}
+
+Build a web-based ``Search-to-Pickup and Delivery'' platform with the
+following components:
+
+\begin{itemize}
+\item
+  Store \& inventory listing: recognized medical stores register and
+  maintain a live inventory of the medicines they stock.
+\item
+  Medicine search: users search for a medicine and see which nearby
+  stores have it in stock, along with price and distance.
+\item
+  Filtering \& sorting: results can be filtered/sorted by nearest
+  distance and lowest price.
+\item
+  Reserve feature: users can place a short-hold reservation on a
+  medicine at a chosen store so it is not sold out before they arrive.
+\item
+  Verified registration: only recognized, verified pharmacies can list
+  inventory, keeping the platform trustworthy.
 \end{itemize}
 
-\subsection{Core workflow}
-\begin{enumerate}[leftmargin=0.7cm]
-    \item Citizen creates a complaint and receives a complaint ID immediately.
-    \item System validates completeness and suggests possible duplicates (lightweight similarity on text/category and approximate location).
-    \item Department staff update status (Received $\rightarrow$ Assigned $\rightarrow$ In Progress $\rightarrow$ Resolved).
-    \item Citizen views status updates and resolution notes.
-\end{enumerate}
+\subsection{\texorpdfstring{\textbf{4.2 Core
+workflow}}{4.2 Core workflow}}\label{core-workflow}
 
-\subsection{Operational constraints for an educational, tier-2/3 setting}
-\begin{itemize}[leftmargin=0.7cm]
-    \item Keep the solution usable on low-to-mid range devices via responsive web design.
-    \item Avoid dependence on advanced research algorithms; focus on workflow, automation, and system correctness.
-    \item Design for deployability using common web hosting and managed databases.
+\begin{itemize}
+\item
+  User searches for a medicine and instantly sees a ranked list of
+  nearby stores with stock, price, and distance.
+\item
+  System checks store-submitted inventory data and flags low-stock or
+  recently-updated listings.
+\item
+  User optionally reserves the medicine at a chosen store, receiving a
+  reservation ID and hold window.
+\item
+  Store staff confirm the reservation, update stock upon pickup or
+  expiry, and the record closes out.
 \end{itemize}
 
-\section{Solution Approach %
-\BvrHint{\ldots Engineering focus}}
-This is an engineering course project, so we focus on scalable administrative and workflow aspects rather than novel algorithm research.
+\subsection{\texorpdfstring{\textbf{4.3 Operational constraints for an
+educational
+setting}}{4.3 Operational constraints for an educational setting}}\label{operational-constraints-for-an-educational-setting}
 
-\subsection{Duplicate/quality assistance %
-\BvrHint{\ldots non-research}}
-Duplicate detection will be heuristic-based:
-\begin{itemize}[leftmargin=0.7cm]
-    \item Normalize text (category + short description keywords).
-    \item Use a simple similarity measure (e.g., token overlap / TF-IDF cosine with threshold) without claiming state-of-the-art.
-    \item Show top candidate duplicates to staff for decision; never fully auto-delete or auto-reject.
+\begin{itemize}
+\item
+  Keep the solution usable on low-to-mid range devices via responsive
+  web design.
+\item
+  Avoid dependence on advanced research algorithms (e.g., no ML-based
+  demand forecasting in v1); focus on workflow, data correctness, and
+  search performance.
+\item
+  Design for deployability using common web hosting and managed
+  databases.
 \end{itemize}
 
-\subsection{Web architecture %
-\BvrHint{\ldots web-based solution}}
+\section{\texorpdfstring{\textbf{5. Solution Approach}
+\emph{\ldots Engineering
+focus}}{5. Solution Approach \ldots Engineering focus}}\label{solution-approach-engineering-focus}
+
+This is an engineering course project, so we focus on scalable
+data-management and workflow aspects rather than novel algorithm
+research.
+
+\subsection{\texorpdfstring{\textbf{5.1 Search \& matching}
+\emph{\ldots non-research}}{5.1 Search \& matching \ldots non-research}}\label{search-matching-non-research}
+
+\begin{itemize}
+\item
+  Medicine search will use straightforward, well-understood techniques
+  rather than novel research: fuzzy text matching on medicine
+  name/brand/generic name to tolerate typos and partial queries.
+\item
+  Distance ranking will use standard geolocation math (haversine
+  distance) against store coordinates, without claiming state-of-the-art
+  routing.
+\item
+  Inventory freshness will be tracked via simple ``last updated''
+  timestamps per store-medicine record, surfaced to users so stale
+  listings are visible rather than hidden.
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{5.2 Web architecture}
+\emph{\ldots web-based
+solution}}{5.2 Web architecture \ldots web-based solution}}\label{web-architecture-web-based-solution}
+
 A typical 3-tier web architecture:
-\begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Frontend:} responsive UI for citizens and staff (status pages, submission form, dashboard).
-    \item \textbf{Backend API:} authentication, complaint submission, status transitions, assignment logic.
-    \item \textbf{Database:} store users, complaints, status history, attachments metadata.
+
+\begin{itemize}
+\item
+  Frontend: responsive UI for patients (search, filters, reservation)
+  and store staff (inventory management dashboard).
+\item
+  Backend API: authentication, medicine search, inventory CRUD,
+  reservation logic, store verification workflow.
+\item
+  Database: store users, stores, medicines, inventory records,
+  reservations, and price history.
 \end{itemize}
 
-\subsection{CI/CD and fast delivery enabler}
+\subsection{\texorpdfstring{\textbf{5.3 CI/CD and fast delivery
+enabler}}{5.3 CI/CD and fast delivery enabler}}\label{cicd-and-fast-delivery-enabler}
+
 CI/CD will be used to:
-\begin{itemize}[leftmargin=0.7cm]
-    \item Automatically build and run tests on every change.
-    \item Produce repeatable deployment artifacts to staging.
-    \item Enable safe and frequent releases of incremental features.
+
+\begin{itemize}
+\item
+  Automatically build and run tests on every change.
+\item
+  Produce repeatable deployment artifacts to staging.
+\item
+  Enable safe and frequent releases of incremental features (e.g.,
+  adding the Reserve feature after core search is stable).
 \end{itemize}
 
-\section{Evaluation Criterion %
-\BvrHint{\ldots measurable and attributable}}
+\section{\texorpdfstring{\textbf{6. Evaluation Criterion}
+\emph{\ldots measurable and
+attributable}}{6. Evaluation Criterion \ldots measurable and attributable}}\label{evaluation-criterion-measurable-and-attributable}
+
 We define success using measurable metrics tied to the core workflow.
 
-\subsection{Primary evaluation metric}
-\textbf{Time-to-acknowledgement (TTA):} time between complaint submission and ``Received/Assigned'' status creation in the system.
-\begin{itemize}[leftmargin=0.7cm]
-    \item Target: median TTA $\le$ 2 hours during pilot window.
-    \item Attribution: measured from database timestamps (submission vs. first status update by staff).
+\subsection{\texorpdfstring{\textbf{6.1 Primary evaluation
+metric}}{6.1 Primary evaluation metric}}\label{primary-evaluation-metric}
+
+Time-to-find (TTF): time between a user submitting a medicine search
+query and the app returning a usable list of in-stock nearby stores.
+
+\begin{itemize}
+\item
+  Target: median TTF ≤ 3 seconds for search results during pilot window.
+\item
+  Attribution: measured via server-side request/response timestamps
+  logged for each search query.
 \end{itemize}
 
-\subsection{Secondary evaluation metrics}
-\begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Resolution time reduction:} reduce time-to-resolved compared to baseline process (even if baseline is collected via survey).
-    \item \textbf{Duplicate rate:} percentage of complaints flagged as duplicates and resolved without rework.
-    \item \textbf{User clarity:} citizen-reported clarity of status using a simple 1--5 feedback question.
-    \item \textbf{Reliability:} availability of staging/production for login and submission during business hours (e.g., $\ge$ 99\% uptime in pilot).
+\subsection{\texorpdfstring{\textbf{6.2 Secondary evaluation
+metrics}}{6.2 Secondary evaluation metrics}}\label{secondary-evaluation-metrics}
+
+\begin{itemize}
+\item
+  Reservation fulfillment rate: percentage of reservations successfully
+  honored (medicine still available) at pickup versus expired/cancelled.
+\item
+  Search success rate: percentage of searches that return at least one
+  in-stock result, compared against a pre-launch baseline (phone-call
+  survey of store availability).
+\item
+  User clarity: patient-reported clarity/usefulness of results using a
+  simple 1--5 feedback question.
+\item
+  Reliability: availability of staging/production for search and
+  reservation during business hours (e.g., ≥ 99\% uptime in pilot).
 \end{itemize}
 
-\subsection{Pilot validation plan %
-\BvrHint{\ldots high-level}}
-\begin{itemize}[leftmargin=0.7cm]
-    \item Recruit 10--20 pilot users (citizens) and 3--5 staff roles (department simulation if real staff unavailable).
-    \item Compare metrics before/after within the iteration window by logging baseline estimates via short interviews or existing process observations.
+\subsection{\texorpdfstring{\textbf{6.3 Pilot validation plan}
+\emph{\ldots high-level}}{6.3 Pilot validation plan \ldots high-level}}\label{pilot-validation-plan-high-level}
+
+\begin{itemize}
+\item
+  Recruit 10--20 pilot users (patients) and 3--5 partner pharmacies (or
+  simulated store accounts if real partners are unavailable).
+\item
+  Compare metrics before/after within the iteration window by logging
+  baseline estimates via short interviews or manual store-calling
+  exercises.
 \end{itemize}
 
-\section{Scalability %
-\BvrHint{\ldots with foresight}}
+\section{\texorpdfstring{\textbf{7. Scalability} \emph{\ldots with
+foresight}}{7. Scalability \ldots with foresight}}\label{scalability-with-foresight}
+
 The proposition should scale in both theoretical and practical senses.
 
-\begin{enumerate}[leftmargin=0.7cm]
-    \item \textbf{Scalable (theoretically):} The system should support growth in number of complaints and concurrent dashboard usage by:
-    \begin{itemize}[leftmargin=0.7cm]
-        \item decoupling components (frontend/backend),
-        \item enabling pagination and indexing for common queries,
-        \item using stateless API design.
-    \end{itemize}
-    
-    \item \textbf{Operationally deployable (practically):} The system should run on common web hosting:
-    \begin{itemize}[leftmargin=0.7cm]
-        \item managed database,
-        \item containerized or platform-hosted deployment,
-        \item CI/CD pipeline for staging/production.
-    \end{itemize}
-\end{enumerate}
+\subsection{\texorpdfstring{\textbf{Scalable
+(theoretically)}}{Scalable (theoretically)}}\label{scalable-theoretically}
 
-\section{Engine availability heuristic}
-A mature set of ``engines'' (tooling/services) is available to implement this as a web-based project:
-\begin{itemize}[leftmargin=0.7cm]
-    \item Web framework for REST APIs and templated/reactive pages.
-    \item Managed relational or document database.
-    \item Authentication approach (token-based or session-based).
-    \item Object storage for optional attachments (or local storage for pilot).
-    \item Test framework for unit/integration tests.
-    \item CI runner and staging deployment target.
-\end{itemize}
-We will use these mature components to focus on workflow design, correctness, and measurement rather than inventing new infrastructure.
+The system should support growth in number of stores, medicines, and
+concurrent searches by:
 
-\section{Project scope and deliverables %
-\BvrHint{\ldots iteration-friendly}}
-\subsection{Initial deliverable %
-\BvrHint{\ldots first iteration}}
-\begin{itemize}[leftmargin=0.7cm]
-    \item Citizen submission form + complaint ID generation
-    \item Staff workflow: update status and assignment
-    \item Citizen status page: view timeline/history
-    \item Basic logging and timestamps for TTA measurement
-    \item CI: build + backend unit tests + linting
-    \item CD to staging with a single command or pipeline job
+\begin{itemize}
+\item
+  decoupling components (frontend/backend),
+\item
+  enabling pagination and indexing for common queries (e.g., medicine
+  name, store location),
+\item
+  using stateless API design.
 \end{itemize}
 
-\subsection{Subsequent deliverables}
-\begin{itemize}[leftmargin=0.7cm]
-    \item Lightweight duplicate suggestions with staff review
-    \item Notification layer (email/SMS optional in later iteration; can start with in-app notifications)
-    \item Admin dashboard for metrics and backlog
-    \item Improved search/filtering and indexed queries for scale readiness
+\subsection{\texorpdfstring{\textbf{Operationally deployable
+(practically)}}{Operationally deployable (practically)}}\label{operationally-deployable-practically}
+
+The system should run on common web hosting:
+
+\begin{itemize}
+\item
+  managed database,
+\item
+  containerized or platform-hosted deployment,
+\item
+  CI/CD pipeline for staging/production.
 \end{itemize}
 
-\section{Risks and mitigations}
-\begin{itemize}[leftmargin=0.7cm]
-    \item \textbf{Data privacy / consent:} minimize collected data; keep attachments optional; store only what is needed.
-    \item \textbf{Staff adoption:} provide an easy UI for status updates; keep workflow steps minimal; include shortcuts.
-    \item \textbf{Evaluation measurement ambiguity:} instrument timestamps and define clear status transitions before development begins.
-    \item \textbf{Operational issues in pilot:} use staging early; ensure CI/CD produces repeatable deployments.
+\section{\texorpdfstring{\textbf{8. Engine availability
+heuristic}}{8. Engine availability heuristic}}\label{engine-availability-heuristic}
+
+A mature set of ``engines'' (tooling/services) is available to implement
+this as a web-based project:
+
+\begin{itemize}
+\item
+  Web framework for REST APIs and reactive frontend pages.
+\item
+  Managed relational or document database.
+\item
+  Authentication approach (token-based or session-based) with separate
+  roles for patients and store staff.
+\item
+  Geolocation/maps service for distance calculation and map display.
+\item
+  Test framework for unit/integration tests.
+\item
+  CI runner and staging deployment target.
 \end{itemize}
 
-\section{Summary}
-This project proposes a deployable web platform to reduce grievance handling delays in a tier-2/3 city context. It meets the course criteria by emphasizing time-to-value through rapid iterations, implementing CI/CD to support frequent safe releases, and using measurable evaluation criteria (especially time-to-acknowledgement). It remains focused on engineering workflow and scalability readiness rather than research-driven novelty.
+We will use these mature components to focus on workflow design,
+correctness, and measurement rather than inventing new infrastructure.
+
+\section{\texorpdfstring{\textbf{9. Project scope and deliverables}
+\emph{\ldots iteration-friendly}}{9. Project scope and deliverables \ldots iteration-friendly}}\label{project-scope-and-deliverables-iteration-friendly}
+
+\subsection{\texorpdfstring{\textbf{9.1 Initial deliverable}
+\emph{\ldots first iteration}
+}{9.1 Initial deliverable \ldots first iteration }}\label{initial-deliverable-first-iteration}
+
+\begin{itemize}
+\item
+  Store registration and inventory submission form
+\item
+  Medicine search with distance and price filters
+\item
+  Patient results page: store list with stock status, price, distance
+\item
+  Basic logging and timestamps for TTF measurement
+\item
+  CI: build + backend unit tests + linting
+\item
+  CD to staging with a single command or pipeline job
+\end{itemize}
+
+\subsection{\texorpdfstring{\textbf{9.2 Subsequent
+deliverables}}{9.2 Subsequent deliverables}}\label{subsequent-deliverables}
+
+\begin{itemize}
+\item
+  Reserve feature with hold-timer and expiry handling
+\item
+  Notification layer (SMS/email optional in later iteration; can start
+  with in-app notifications)
+\item
+  Store dashboard for inventory management and reservation metrics
+\item
+  Improved search/filtering and indexed queries for scale readiness
+\end{itemize}
+
+\section{\texorpdfstring{\textbf{10. Risks and
+mitigations}}{10. Risks and mitigations}}\label{risks-and-mitigations}
+
+\begin{itemize}
+\item
+  Data accuracy: store-submitted inventory may go stale; mitigate with
+  ``last updated'' timestamps and periodic reminder prompts to stores.
+\item
+  Store adoption: provide an easy UI for inventory updates; keep the
+  update workflow to a few taps; consider bulk-upload/CSV import.
+\item
+  Verification overhead: manual pharmacy verification could bottleneck
+  onboarding; mitigate with a lightweight document-upload +
+  admin-approval flow.
+\item
+  Evaluation measurement ambiguity: instrument timestamps and define
+  clear search/reservation states before development begins.
+\item
+  Operational issues in pilot: use staging early; ensure CI/CD produces
+  repeatable deployments.
+\end{itemize}
+
+\section{\texorpdfstring{\textbf{11.
+Summary}}{11. Summary}}\label{summary}
+
+This project proposes a deployable web platform that gives patients
+real-time visibility into medicine availability across nearby
+pharmacies. It meets the course criteria by emphasizing time-to-value
+through rapid iterations, implementing CI/CD to support frequent safe
+releases, and using measurable evaluation criteria (especially
+time-to-find). It remains focused on engineering workflow, data
+correctness, and scalability readiness rather than research-driven
+novelty.
 
 \end{document}
