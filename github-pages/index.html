@@ -140,7 +140,7 @@
           <div class="flow-step-content">
             <span class="flow-badge badge-done">Modeled</span>
             <h3>Manage Reservation</h3>
-            <p>Validates availability, creates a reservation record, holds stock, and notifies the store.</p>
+            <p>Validates availability, creates a reservation record, holds stock, and notifies the store — with support for cancellation.</p>
           </div>
         </div>
       </div>
@@ -167,10 +167,15 @@
         The formal proposal outlines the problem statement, objectives, and technical approach for MedFinder.
       </p>
       <div class="grid grid-3">
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/MedFinder_Project_Proposal_final.docx" target="_blank" class="card card-link fade-in">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/project-proposal/main.pdf" target="_blank" class="card card-link fade-in">
           <h3>Project Proposal</h3>
           <p>Complete project proposal document</p>
-          <span class="tag">DOCX</span>
+          <span class="tag">PDF</span>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/project-proposal/main.tex" target="_blank" class="card card-link fade-in">
+          <h3>LaTeX Source</h3>
+          <p>Source file for the proposal</p>
+          <span class="tag">TEX</span>
         </a>
         <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/MedFinder_finalPresentation.pdf" target="_blank" class="card card-link fade-in">
           <h3>Presentation</h3>
@@ -187,32 +192,40 @@
       <p class="section-label">System Design</p>
       <h2 class="section-title">UML Diagrams</h2>
       <p class="section-desc">
-        Use case diagram, data flow diagrams (Level 0–2), and the entity-relationship model for MedFinder.
+        Use case diagram, data flow diagrams (Level 0–2), entity-relationship model, and activity diagrams for MedFinder.
       </p>
       <div class="grid grid-3">
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/use-case.png" target="_blank" class="card card-link fade-in">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/UseCaseDiagram.png" target="_blank" class="card card-link fade-in">
           <h3>Use Case Diagram</h3>
           <p>Interactions between Patient, Store Staff, and Admin</p>
         </a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level0.png" target="_blank" class="card card-link fade-in">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/dfd_level_0.png" target="_blank" class="card card-link fade-in">
           <h3>DFD — Level 0</h3>
           <p>Context diagram of the whole system</p>
         </a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level1.png" target="_blank" class="card card-link fade-in">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/dfd_level_1.png" target="_blank" class="card card-link fade-in">
           <h3>DFD — Level 1</h3>
           <p>Process decomposition with data stores</p>
         </a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level2-search.png" target="_blank" class="card card-link fade-in">
-          <h3>DFD — Level 2 (Search)</h3>
-          <p>Internal breakdown of Search Medicine</p>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/dfd_level_2.png" target="_blank" class="card card-link fade-in">
+          <h3>DFD — Level 2</h3>
+          <p>Internal breakdown of Search &amp; Reservation processes</p>
         </a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level2-reservation.png" target="_blank" class="card card-link fade-in">
-          <h3>DFD — Level 2 (Reservation)</h3>
-          <p>Internal breakdown of Manage Reservation</p>
-        </a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/er-diagram.png" target="_blank" class="card card-link fade-in">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/ER_diagram.png" target="_blank" class="card card-link fade-in">
           <h3>ER Diagram</h3>
           <p>Entities, attributes, and relationships</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/Activity_Diagram_01.png" target="_blank" class="card card-link fade-in">
+          <h3>Activity Diagram — Store Registration</h3>
+          <p>Step-by-step flow of store registration and verification</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/Activity_Diagram_02.png" target="_blank" class="card card-link fade-in">
+          <h3>Activity Diagram — Search &amp; Reserve</h3>
+          <p>Step-by-step flow of searching and reserving medicine</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/diagrams/Activity_Diagram_03.png" target="_blank" class="card card-link fade-in">
+          <h3>Activity Diagram — Cancel Reservation</h3>
+          <p>Step-by-step flow of cancelling a reservation</p>
         </a>
       </div>
     </div>
@@ -251,7 +264,7 @@
       <div class="footer-links">
         <a href="https://github.com/Sourabhchhabra11/Med_Finder" target="_blank">GitHub</a>
         <a href="https://github.com/Sourabhchhabra11/Med_Finder/tree/main/docs" target="_blank">Docs</a>
-        <a href="https://github.com/Sourabhchhabra11/Med_Finder/tree/main/diagrams" target="_blank">Diagrams</a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/tree/main/docs/diagrams" target="_blank">Diagrams</a>
       </div>
     </div>
   </footer>
