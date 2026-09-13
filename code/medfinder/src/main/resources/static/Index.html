@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedFinder — find medicine, not another dead end</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo">MedFinder</a>
+    <nav class="main-nav">
+      <a href="#how">How it works</a>
+      <a href="#pharmacies">For pharmacies</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO / SEARCH ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Patiala &amp; nearby, live now</p>
+        <h1>Find it before<br>you drive there.</h1>
+        <p class="hero-sub">
+          Search a medicine and see exactly which verified pharmacies near you
+          have it in stock right now — with price and distance, before you leave the house.
+        </p>
+
+        <form class="search-bar" id="search-form" autocomplete="off">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+            <path d="M20 20L16.5 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input
+            id="medicine-input"
+            type="text"
+            placeholder="Search a medicine — Paracetamol, Ibuprofen…"
+            required
+          >
+          <button type="submit" class="btn-primary" id="search-btn">Search</button>
+        </form>
+
+        <p class="hero-trust">
+          <span><i class="dot dot-teal"></i>Verified pharmacies only</span>
+          <span><i class="dot dot-amber"></i>Live stock counts</span>
+          <span><i class="dot dot-navy"></i>Ranked by distance</span>
+        </p>
+      </div>
+
+      <div class="hero-visual" id="hero-visual" aria-hidden="true">
+        <div class="capsule-stage" id="capsule-stage">
+          <div class="capsule capsule-a"><span></span><span></span></div>
+          <div class="capsule capsule-b"><span></span><span></span></div>
+          <div class="capsule capsule-c"><span></span><span></span></div>
+          <div class="ring"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="results-section" id="results-section" hidden>
+    <div class="wrap">
+      <div class="results-head">
+        <h2 id="results-title">Results</h2>
+        <p id="results-meta" class="results-meta"></p>
+      </div>
+      <div class="results-list" id="results-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ EMPTY / STATUS STATE ============ -->
+  <section class="status-section" id="status-section" hidden>
+    <div class="wrap">
+      <div class="status-card" id="status-card"></div>
+    </div>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="how" id="how">
+    <div class="wrap">
+      <h2>How MedFinder works</h2>
+      <ol class="how-steps">
+        <li>
+          <span class="step-index">1</span>
+          <h3>Search the medicine</h3>
+          <p>Type the name — brand or generic. We check live inventory across every verified pharmacy near you.</p>
+        </li>
+        <li>
+          <span class="step-index">2</span>
+          <h3>Compare in one glance</h3>
+          <p>See who has it, what it costs, and how far it is, sorted nearest first — no phone calls required.</p>
+        </li>
+        <li>
+          <span class="step-index">3</span>
+          <h3>Reserve and go</h3>
+          <p>Hold your order at the pharmacy of your choice so it's waiting when you arrive.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ FOR PHARMACIES ============ -->
+  <section class="pharmacies" id="pharmacies">
+    <div class="wrap pharmacies-grid">
+      <div>
+        <h2>Only verified pharmacies show up</h2>
+        <p>
+          Every pharmacy on MedFinder is checked before its stock goes live, so a search result
+          means the medicine is actually on the shelf — not just listed.
+        </p>
+      </div>
+      <div class="pharmacy-stat">
+        <span class="stat-number" id="pharmacy-count">3</span>
+        <span class="stat-label">verified pharmacies live in Patiala</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="logo logo-footer">MedFinder</span>
+    <p>Built for a faster trip to the pharmacy.</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
