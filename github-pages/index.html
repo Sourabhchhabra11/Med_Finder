@@ -1,11 +1,261 @@
-<!DOCTYPE html> 
-<html>
-<head> 
-<title>MedFinder</title>
-<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedFinder — Real-time medicine availability & store locator.">
+  <title>MedFinder — Real-Time Medicine Availability & Store Locator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>MedFinder</h1> 
-<script src="script.js"></script> 
-</body> 
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">MedFinder</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#flow" class="nav-link">How It Works</a></li>
+        <li><a href="#proposal" class="nav-link">Proposal</a></li>
+        <li><a href="#diagrams" class="nav-link">Diagrams</a></li>
+        <li><a href="#team" class="nav-link">Team</a></li>
+        <li><a href="https://github.com/Sourabhchhabra11/Med_Finder" target="_blank" class="nav-link">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <p class="hero-label">Course Project · UCS503P</p>
+      <h1 class="hero-title">MedFinder</h1>
+      <p class="hero-subtitle">Connecting patients to the right pharmacy, instantly — real-time medicine availability and store locator.</p>
+      <div class="hero-actions">
+        <a href="#about" class="btn btn-primary">Learn More</a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder" target="_blank" class="btn btn-outline">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section-label">Overview</p>
+      <h2 class="section-title">What is MedFinder?</h2>
+      <p class="section-desc">
+        MedFinder is a web application that helps patients instantly find which nearby verified medical stores have a specific medicine in stock — showing real-time availability, price, and distance, so no one has to roam from pharmacy to pharmacy during an urgent medical need.
+      </p>
+      <div class="grid grid-4">
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Instant Search</h3>
+          <p>Find which nearby recognized medical stores have a specific medicine in stock.</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>Real-Time Data</h3>
+          <p>See live availability, price, and distance across all listed stores.</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h3>Reserve Feature</h3>
+          <p>Hold the medicine at a chosen store until you arrive to pick it up.</p>
+        </div>
+        <div class="card fade-in">
+          <div class="card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3>Verified Stores</h3>
+          <p>Pharmacy registration ensures only recognized and authentic stores are listed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt" id="flow">
+    <div class="container">
+      <p class="section-label">System Design</p>
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-desc">
+        MedFinder's core system is modeled around 5 processes — from authentication and store registration to the actual search and reservation flow.
+      </p>
+
+      <div class="flow-pipeline">
+        <div class="flow-step fade-in completed">
+          <div class="flow-step-number">1</div>
+          <div class="flow-step-content">
+            <span class="flow-badge badge-done">Modeled</span>
+            <h3>Manage Authentication</h3>
+            <p>Handles login and registration for both patients and store staff.</p>
+          </div>
+        </div>
+        <div class="flow-connector completed"></div>
+
+        <div class="flow-step fade-in completed">
+          <div class="flow-step-number">2</div>
+          <div class="flow-step-content">
+            <span class="flow-badge badge-done">Modeled</span>
+            <h3>Manage Store Registration</h3>
+            <p>Store staff submit pharmacy details, which are verified by an Admin before going live.</p>
+          </div>
+        </div>
+        <div class="flow-connector completed"></div>
+
+        <div class="flow-step fade-in completed">
+          <div class="flow-step-number">3</div>
+          <div class="flow-step-content">
+            <span class="flow-badge badge-done">Modeled</span>
+            <h3>Manage Inventory</h3>
+            <p>Store staff add, update, or remove medicine stock entries in real time.</p>
+          </div>
+        </div>
+        <div class="flow-connector completed"></div>
+
+        <div class="flow-step fade-in completed">
+          <div class="flow-step-number">4</div>
+          <div class="flow-step-content">
+            <span class="flow-badge badge-done">Modeled</span>
+            <h3>Search Medicine</h3>
+            <p>Parses a patient's query, matches it against the medicine catalog, checks live stock, and ranks results by distance and price.</p>
+          </div>
+        </div>
+        <div class="flow-connector completed"></div>
+
+        <div class="flow-step fade-in completed">
+          <div class="flow-step-number">5</div>
+          <div class="flow-step-content">
+            <span class="flow-badge badge-done">Modeled</span>
+            <h3>Manage Reservation</h3>
+            <p>Validates availability, creates a reservation record, holds stock, and notifies the store.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tech-stack">
+        <h3>Tech Stack</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML/CSS/JS</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Express</span>
+          <span class="tech-tag">MongoDB / SQL</span>
+          <span class="tech-tag">Draw.io (UML)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROPOSAL -->
+  <section class="section" id="proposal">
+    <div class="container">
+      <p class="section-label">Documentation</p>
+      <h2 class="section-title">Project Proposal</h2>
+      <p class="section-desc">
+        The formal proposal outlines the problem statement, objectives, and technical approach for MedFinder.
+      </p>
+      <div class="grid grid-3">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/MedFinder_Project_Proposal_final.docx" target="_blank" class="card card-link fade-in">
+          <h3>Project Proposal</h3>
+          <p>Complete project proposal document</p>
+          <span class="tag">DOCX</span>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/docs/MedFinder_finalPresentation.pdf" target="_blank" class="card card-link fade-in">
+          <h3>Presentation</h3>
+          <p>Final project pitch deck</p>
+          <span class="tag">PDF</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UML DIAGRAMS -->
+  <section class="section section-alt" id="diagrams">
+    <div class="container">
+      <p class="section-label">System Design</p>
+      <h2 class="section-title">UML Diagrams</h2>
+      <p class="section-desc">
+        Use case diagram, data flow diagrams (Level 0–2), and the entity-relationship model for MedFinder.
+      </p>
+      <div class="grid grid-3">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/use-case.png" target="_blank" class="card card-link fade-in">
+          <h3>Use Case Diagram</h3>
+          <p>Interactions between Patient, Store Staff, and Admin</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level0.png" target="_blank" class="card card-link fade-in">
+          <h3>DFD — Level 0</h3>
+          <p>Context diagram of the whole system</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level1.png" target="_blank" class="card card-link fade-in">
+          <h3>DFD — Level 1</h3>
+          <p>Process decomposition with data stores</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level2-search.png" target="_blank" class="card card-link fade-in">
+          <h3>DFD — Level 2 (Search)</h3>
+          <p>Internal breakdown of Search Medicine</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/dfd-level2-reservation.png" target="_blank" class="card card-link fade-in">
+          <h3>DFD — Level 2 (Reservation)</h3>
+          <p>Internal breakdown of Manage Reservation</p>
+        </a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/blob/main/diagrams/er-diagram.png" target="_blank" class="card card-link fade-in">
+          <h3>ER Diagram</h3>
+          <p>Entities, attributes, and relationships</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="section" id="team">
+    <div class="container">
+      <p class="section-label">People</p>
+      <h2 class="section-title">Team</h2>
+      <div class="grid grid-3">
+        <div class="card card-center fade-in">
+          <div class="avatar avatar-lg">AY</div>
+          <h3>Arpit Yadav</h3>
+          <p>1024030446</p>
+        </div>
+        <div class="card card-center fade-in">
+          <div class="avatar avatar-lg">SC</div>
+          <h3>Sourabh Chhabra</h3>
+          <p>1024030435</p>
+        </div>
+        <div class="card card-center fade-in">
+          <div class="avatar avatar-lg">MG</div>
+          <h3>Madhav Gupta</h3>
+          <p>1024030436</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer-brand">MedFinder</p>
+      <p class="footer-text">Real-time medicine availability & store locator.</p>
+      <div class="footer-links">
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder" target="_blank">GitHub</a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/tree/main/docs" target="_blank">Docs</a>
+        <a href="https://github.com/Sourabhchhabra11/Med_Finder/tree/main/diagrams" target="_blank">Diagrams</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
